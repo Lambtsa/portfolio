@@ -1,6 +1,11 @@
 import { WrapSize } from "@components/Container/Container.types";
 import { CONTAINER } from "@constants/layout";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const appear = keyframes`
+  from{opacity: 0;}
+  to{opacity: 100%;}
+`;
 
 export const HeaderContainer = styled.div<{
   isScrolled: boolean;
@@ -13,6 +18,7 @@ export const HeaderContainer = styled.div<{
   z-index: 1000;
   background-color: ${(props) =>
     props.isScrolled ? props.theme.colors.eerieBlack80 : "transparent"};
+  animation: ${appear} 2s ease-in 5s 1 normal both;
 `;
 
 export const InnerContainer = styled.div<{

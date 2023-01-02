@@ -20,15 +20,15 @@ const buildUrl = (path: string): string => {
 
 export const pageData: Pages = {
   default: {
-    title: "Audio Linx | Share your favourite songs with all your friends!",
+    title: "Tom Lamb | Full Stack Javascript Developer and Product Manager.",
     description:
-      "Enter an artist's name, a song title or a sharing url and generate links for that song for all the most popular music streaming platforms. Click and share your favourite songs with all your friends!",
+      "I am full stack Javascript developer and product manager who has worked in both LegalTech and Fintech within the Stockholm startup ecosystem.",
     url: buildUrl(routes.index()),
   },
   index: {
-    title: "Audio Linx | Share your favourite songs with all your friends!",
+    title: "Tom Lamb | Full Stack Javascript Developer and Product Manager.",
     description:
-      "Enter an artist's name, a song title or a sharing url and generate links for that song for all the most popular music streaming platforms. Click and share your favourite songs with all your friends!",
+      "I am full stack Javascript developer and product manager who has worked in both LegalTech and Fintech within the Stockholm startup ecosystem.",
     url: buildUrl(routes.index()),
   },
 };

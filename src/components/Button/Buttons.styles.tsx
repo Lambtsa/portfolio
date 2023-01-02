@@ -1,12 +1,25 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
-export const StyledButton = styled.button`
+const appear = keyframes`
+  from{opacity: 0;}
+  to{opacity: 100%;}
+`;
+
+export const StyledButton = styled.button<{
+  isAppearing: boolean;
+}>`
   text-align: center;
   font-size: 16px;
   padding: 8px 16px;
   border-radius: 8px;
   border: 1px solid ${(props) => props.theme.colors.linen};
   background-color: transparent;
+
+  ${(props) =>
+    props.isAppearing &&
+    css`
+      animation: ${appear} 2s ease-in 5s 1 normal both;
+    `}
 
   :hover {
     background-color: ${(props) => props.theme.colors.caribbeanGreen};

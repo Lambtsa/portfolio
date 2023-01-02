@@ -16,19 +16,19 @@ export const About = (): JSX.Element => {
         <TextContainer>
           <AboutTitle>About Me</AboutTitle>
           <AboutText>
-            I am full stack Javascript developer and product manager who has
-            worked in both LegalTech and Fintech within the Stockholm startup
-            ecosystem.
+            {
+              "I am full stack Javascript developer and product manager who has worked in both LegalTech and Fintech within the Stockholm startup ecosystem."
+            }
           </AboutText>
           <AboutText>
-            Driven by process with a keen eye on the big picture, I strive to
-            constantly optimise my work and the work of the teams I am part of
-            to fulfil product objectives.
+            {
+              "Driven by process with a keen eye on the big picture, I strive to constantly optimise my work and the work of the teams I am part of to fulfil product objectives."
+            }
           </AboutText>
           <AboutText>
-            I am also a passionate skier, a skateboarder and when I am not
-            outside in the wilderness, I spend my time developing websites and
-            apps.
+            {
+              "I am also a passionate skier, a skateboarder and when I am not outside in the wilderness, I spend my time developing websites and apps."
+            }
           </AboutText>
         </TextContainer>
       </AboutContainer>

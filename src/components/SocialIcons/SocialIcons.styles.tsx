@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const appear = keyframes`
+  from{opacity: 0;}
+  to{opacity: 100%;}
+`;
 
 export const SocialIconsWrapper = styled.div`
   position: absolute;
@@ -10,6 +15,7 @@ export const SocialIconsWrapper = styled.div`
   align-items: center;
   gap: 8px;
   margin: 8px 0;
+  animation: ${appear} 2s ease-in 5s 1 normal both;
 
   a:hover {
     svg path {

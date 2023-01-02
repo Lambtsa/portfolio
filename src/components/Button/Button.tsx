@@ -1,11 +1,24 @@
-import { useTranslation } from "@hooks/useTranslation";
+import Link from "next/link";
 import { StyledButton } from "./Buttons.styles";
 
-export const Button = (): JSX.Element => {
-  const { t } = useTranslation();
+interface ButtonProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  content: string;
+  isAppearing?: boolean;
+  href: string;
+}
+
+export const Button = ({
+  content,
+  href,
+  isAppearing = false,
+}: ButtonProps): JSX.Element => {
   return (
-    <StyledButton>
-      <a href="mailto:hello@tom-lamb.com">{t({ id: "jumbotron.btn" })}</a>
+    <StyledButton isAppearing={isAppearing}>
+      <Link href={href}>{content}</Link>
     </StyledButton>
   );
 };

@@ -22,13 +22,12 @@
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@constants/*": ["constants/*"],
-      "@context/*": ["context/*"],
       "@helpers/*": ["helpers/*"],
       "@hooks/*": ["hooks/*"],
       "@locales/*": ["locales/*"],
       "@screens/*": ["screens/*"],
       "@styles": ["styles/index"],
-      "@customTypes": ["types/index"]
+      "@types": ["types/index"]
     },
     "typeRoots": ["./node_modules/@types", "./typings"],
     "esModuleInterop": true,

@@ -41,7 +41,7 @@ export const TextContainer = styled.div`
 `;
 
 export const AppsTitle = styled.h2`
-  color: ${(props) => props.theme.colors.caribbeanGreen};
+  color: ${(props) => props.theme.colors.linen};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: 36px;
   line-height: 48px;

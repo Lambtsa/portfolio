@@ -15,7 +15,11 @@ export const Jumbotron = (): JSX.Element => {
       <JumbotronInnerContainer>
         <JumbotronTitle>{t({ id: "jumbotron.title" })}</JumbotronTitle>
         <JumbotronSubtitle>{t({ id: "jumbotron.subtitle" })}</JumbotronSubtitle>
-        <Button />
+        <Button
+          href="mailto:hello@tom-lamb.com"
+          isAppearing
+          content={t({ id: "jumbotron.btn" })}
+        />
         <SocialIcons />
       </JumbotronInnerContainer>
     </JumbotronContainer>
