@@ -1,13 +1,18 @@
 import "styled-components";
 
 interface Colors {
+  bluetiful: string;
   caribbeanGreen: string;
   eerieBlack: string;
   eerieBlack80: string;
   hotPink: string;
   linen: string;
+  linen20: string;
+  linen40: string;
   linen70: string;
+  mediumStateBlue: string;
   redPurple: string;
+  smokeBlack: string;
 }
 
 interface FontWeights {

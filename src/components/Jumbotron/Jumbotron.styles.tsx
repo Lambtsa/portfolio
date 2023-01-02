@@ -14,6 +14,7 @@ export const JumbotronInnerContainer = styled.section`
   justify-content: center;
   align-items: center;
   gap: 16px;
+  padding: 0 16px;
   max-width: ${CONTAINER.PC}px;
   margin: 0 auto;
   height: 100vh;
