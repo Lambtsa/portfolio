@@ -1,21 +1,23 @@
 import { Button } from "@components/Button";
-import { Container } from "@components/Container";
-import { useTranslation } from "@hooks/useTranslation"
-import { JumbotronContainer, JumbotronSubtitle, JumbotronTitle } from "./Jumbotron.styles"
+import { SocialIcons } from "@components/SocialIcons";
+import { useTranslation } from "@hooks/useTranslation";
+import {
+  JumbotronContainer,
+  JumbotronInnerContainer,
+  JumbotronSubtitle,
+  JumbotronTitle,
+} from "./Jumbotron.styles";
 
 export const Jumbotron = (): JSX.Element => {
   const { t } = useTranslation();
   return (
     <JumbotronContainer>
-      <Container size="tablet" alignment="center">
-        <JumbotronTitle>
-          {t({ id: "jumbotron.title" })}
-        </JumbotronTitle>
-        <JumbotronSubtitle>
-          {t({ id: "jumbotron.subtitle" })}
-        </JumbotronSubtitle>
+      <JumbotronInnerContainer>
+        <JumbotronTitle>{t({ id: "jumbotron.title" })}</JumbotronTitle>
+        <JumbotronSubtitle>{t({ id: "jumbotron.subtitle" })}</JumbotronSubtitle>
         <Button />
-      </Container>
+        <SocialIcons />
+      </JumbotronInnerContainer>
     </JumbotronContainer>
-  )
-}
+  );
+};

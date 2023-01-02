@@ -1,5 +1,5 @@
 import { HeaderContainer, InnerContainer } from "./Header.styles";
-import { ReactComponent as Logo } from "@assets/logo.svg"
+import { ReactComponent as Logo } from "@assets/logo.svg";
 import { Button } from "@components/Button";
 import { useMemo } from "react";
 import { useWindowScroll } from "react-use";
@@ -20,5 +20,5 @@ export const Header = (): JSX.Element => {
         <Button />
       </InnerContainer>
     </HeaderContainer>
-  )
-}
+  );
+};

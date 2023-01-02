@@ -1,12 +1,23 @@
+import { CONTAINER } from "@constants/layout";
 import Image from "next/image";
 import styled from "styled-components";
+
+export const AboutSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  max-width: ${CONTAINER.PC}px;
+`;
 
 export const AboutContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  padding: 0 16px;
   gap: 16px;
 `;
 

@@ -10,7 +10,9 @@ export const HeaderContainer = styled.div<{
   top: 0;
   left: 0;
   width: 100%;
-  background-color: ${(props) => props.isScrolled ? props.theme.colors.eerieBlack80 : "transparent"};
+  z-index: 1000;
+  background-color: ${(props) =>
+    props.isScrolled ? props.theme.colors.eerieBlack80 : "transparent"};
 `;
 
 export const InnerContainer = styled.div<{

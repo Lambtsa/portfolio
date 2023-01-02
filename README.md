@@ -1,10 +1,12 @@
 # Portfolio App by Tom Lamb
+
 Welcome to my Portfolio. This site is completely built in NextJS using typescript and styled components.
 
 The app is deployed on my own domain at the following url: [https://tom-lamb.com/](https://tom-lamb.com/)
 
 ## Key Features
-- What you can do: 
+
+- What you can do:
   - Find information about my experience
   - Find information about my education
   - Contact me
@@ -36,6 +38,7 @@ It correctly bundles Next in production mode, renders the static files and deplo
 ## Credits
 
 This software uses the following packages:
+
 - [Svelte kit](https://kit.svelte.dev/docs)
 - [Font Awesome](https://fontawesome.com/v5.15/how-to-use/on-the-web/referencing-icons/basic-use)
 - [TailwindCSS](https://tailwindcss.com/docs)

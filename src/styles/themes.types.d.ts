@@ -4,8 +4,10 @@ interface Colors {
   caribbeanGreen: string;
   eerieBlack: string;
   eerieBlack80: string;
+  hotPink: string;
   linen: string;
   linen70: string;
+  redPurple: string;
 }
 
 interface FontWeights {
