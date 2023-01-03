@@ -74,7 +74,7 @@ export const ExperienceInnerContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
-  padding: 32px 0;
+  padding: 32px 16px;
 
   svg {
     min-width: 60px;
