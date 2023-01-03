@@ -74,10 +74,10 @@ export const ExperienceInnerContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
-  padding: 32px 16px;
+  padding: 32px 0;
 
   svg {
-    min-width: fit-content;
+    min-width: 60px;
     margin-top: 5px;
   }
 `;
