@@ -1,3 +1,4 @@
+import { CONTAINER } from "@constants/layout";
 import styled, { keyframes } from "styled-components";
 
 const appear = keyframes`
@@ -15,7 +16,10 @@ export const SocialIconsWrapper = styled.div`
   align-items: center;
   gap: 8px;
   margin: 8px 0;
-  animation: ${appear} 2s ease-in 5s 1 normal both;
+
+  @media screen and (min-width: ${CONTAINER.TABLET}px) {
+    animation: ${appear} 2s ease-in 5s 1 normal both;
+  }
 
   a:hover {
     svg path {

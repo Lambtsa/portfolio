@@ -1,3 +1,4 @@
+import { CONTAINER } from "@constants/layout";
 import styled, { css, keyframes } from "styled-components";
 
 const appear = keyframes`
@@ -15,11 +16,13 @@ export const StyledButton = styled.button<{
   border: 1px solid ${(props) => props.theme.colors.linen};
   background-color: transparent;
 
-  ${(props) =>
-    props.isAppearing &&
-    css`
-      animation: ${appear} 2s ease-in 5s 1 normal both;
-    `}
+  @media screen and (min-width: ${CONTAINER.TABLET}px) {
+    ${(props) =>
+      props.isAppearing &&
+      css`
+        animation: ${appear} 2s ease-in 5s 1 normal both;
+      `}
+  }
 
   :hover {
     background-color: ${(props) => props.theme.colors.caribbeanGreen};

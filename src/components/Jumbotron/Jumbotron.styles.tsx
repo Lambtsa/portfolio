@@ -44,13 +44,14 @@ export const JumbotronTitle = styled.h1`
   line-height: 48px;
   max-width: ${CONTAINER.TABLET}px;
 
-  border-right: solid 3px rgba(0, 255, 0, 0.75);
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 0 auto;
-
-  animation: ${animatedText} 5s steps(30, end) 2s 1 normal both,
-    ${animatedCursor} 600ms steps(30, end) infinite;
+  @media screen and (min-width: ${CONTAINER.TABLET}px) {
+    border-right: solid 3px rgba(0, 255, 0, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 auto;
+    animation: ${animatedText} 5s steps(30, end) 2s 1 normal both,
+      ${animatedCursor} 600ms steps(30, end) infinite;
+  }
 `;
 
 export const JumbotronSubtitle = styled.p`
@@ -60,5 +61,8 @@ export const JumbotronSubtitle = styled.p`
   font-size: 16px;
   line-height: 24px;
   max-width: ${CONTAINER.TABLET}px;
-  animation: ${appear} 2s ease-in 5s 1 normal both;
+
+  @media screen and (min-width: ${CONTAINER.TABLET}px) {
+    animation: ${appear} 2s ease-in 5s 1 normal both;
+  }
 `;

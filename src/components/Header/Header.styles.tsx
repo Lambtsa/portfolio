@@ -18,7 +18,10 @@ export const HeaderContainer = styled.div<{
   z-index: 1000;
   background-color: ${(props) =>
     props.isScrolled ? props.theme.colors.eerieBlack80 : "transparent"};
-  animation: ${appear} 2s ease-in 5s 1 normal both;
+
+  @media screen and (min-width: ${CONTAINER.TABLET}px) {
+    animation: ${appear} 2s ease-in 5s 1 normal both;
+  }
 `;
 
 export const InnerContainer = styled.div<{
