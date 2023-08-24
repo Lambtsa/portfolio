@@ -12,7 +12,7 @@ import { v4 as uuid } from "uuid";
 import { ReactComponent as UbiquitiIcon } from "@assets/ubiquiti.svg";
 import { ReactComponent as AudiolinxIcon } from "@assets/audiolinx.svg";
 import { ReactComponent as CharlieIcon } from "@assets/charlie.svg";
-import { ReactComponent as TradegardIcon } from "@assets/tradegard.svg";
+import { ReactComponent as SmokeyIcon } from "@assets/smokey_monkey.svg";
 
 interface ProjectApps {
   name: string;
@@ -25,18 +25,18 @@ export const Projects = (): JSX.Element => {
   const apps: ProjectApps[] = useMemo(
     () => [
       {
-        name: "Reminders App",
-        description:
-          "A Reminders app allowing users to add, edit and collaborate on tasks in realtime. Built with ReactJS, Typescript, Socket.io and Beautiful dnd on the client side and ExpressJS, Typescript, Socket.io and MongoDB on the server side.",
-        icon: UbiquitiIcon,
-        url: "https://ui-tasks.netlify.app/",
-      },
-      {
         name: "AudioLinx",
         description:
           "A cute little app where you enter an artist, a song title or a url and it will generate urls for that song for the most popular streaming services. Built with Nextjs, typescript and styled components using an Express RESTApi.",
         icon: AudiolinxIcon,
         url: "https://audiolinx.xyz/",
+      },
+      {
+        name: "The Smokey Monkey",
+        description:
+          "The Smokey Monkey is a BBQ SmokeHouse in Strasbourg owned by former colleagues of mine from a past life as a Bartender. They wanted an online presence to be able to show their brand, take reservations and give their customers more information about why they decided to open their amazing smokehouse.",
+        icon: SmokeyIcon,
+        url: "https://smokey-monkey.com/",
       },
       {
         name: "Charlie's Closet",
@@ -46,11 +46,11 @@ export const Projects = (): JSX.Element => {
         url: "https://charlies-closet.com/",
       },
       {
-        name: "Tradegård",
+        name: "Reminders App",
         description:
-          "An app where users can trade items with each other. Made in 9 days as part of my developer training, this full-stack application includes user sign-up and authentication, an interface for creating new items and uploading images, as well a matching feature which informs the users of mutual trading interests.",
-        icon: TradegardIcon,
-        url: "https://tradegard.netlify.app/",
+          "A Reminders app allowing users to add, edit and collaborate on tasks in realtime. Built with ReactJS, Typescript, Socket.io and Beautiful dnd on the client side and ExpressJS, Typescript, Socket.io and MongoDB on the server side.",
+        icon: UbiquitiIcon,
+        url: "https://ui-tasks.netlify.app/",
       },
     ],
     []

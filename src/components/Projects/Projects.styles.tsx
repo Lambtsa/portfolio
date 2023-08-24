@@ -48,6 +48,7 @@ export const ProjectsContainer = styled.div`
   gap: 16px;
   justify-content: center;
   align-items: center;
+  height: fit-content;
 
   @media screen and (max-width: ${CONTAINER.TABLET}px) {
     grid-template-columns: 1fr;
@@ -57,17 +58,22 @@ export const ProjectsContainer = styled.div`
 export const ProjectLink = styled(Link)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 16px;
   padding: 32px 16px;
+  height: 100%;
   border-radius: 20px;
   margin: 16px;
   text-decoration: none;
   text-align: center;
 
-  :hover {
-    background-color: ${(props) => props.theme.colors.linen20};
+  /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
+  @media (hover: hover) {
+    /* when hover is supported */
+    &:hover {
+      background-color: ${(props) => props.theme.colors.linen20};
+    }
   }
 `;
 
