@@ -27,34 +27,23 @@
     --color-bluetiful: #3B82F6;  /* "My stack" title */
 
     /* --- Animations --- */
-    --animate-appear: appear 2s ease-in 5s 1 normal both;
-    --animate-typing: typing 5s steps(30, end) 2s 1 normal both, cursor 600ms steps(30, end) infinite;
+    --animate-rise: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    --animate-blink: blink 1s steps(1, end) infinite;
 
-    @keyframes appear {
+    @keyframes rise {
         from {
             opacity: 0;
+            transform: translateY(16px);
         }
         to {
             opacity: 1;
+            transform: none;
         }
     }
 
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-        to {
-            /* Set --typing-chars on the element to its number of characters (the font is monospaced) */
-            width: calc(var(--typing-chars, 20) * 1ch + 9px);
-        }
-    }
-
-    @keyframes cursor {
-        from {
-            border-right-color: #34D399;
-        }
-        to {
-            border-right-color: transparent;
+    @keyframes blink {
+        50% {
+            opacity: 0;
         }
     }
 }
@@ -79,22 +68,28 @@
     }
 }
 
-/* Plays the intro animations on tablets and up only, and never when motion is reduced */
-@utility intro-appear {
-    @media (width >= 48rem) and (prefers-reduced-motion: no-preference) {
-        animation: var(--animate-appear);
+/*
+ * Rises and fades in on page load. Stagger elements with a delay class,
+ * e.g. [--rise-delay:160ms]. Never plays when motion is reduced.
+ */
+@utility rise-in {
+    @media (prefers-reduced-motion: no-preference) {
+        animation: var(--animate-rise);
+        animation-delay: var(--rise-delay, 0ms);
     }
 }
 
-/* The hero title typed out letter by letter, with a blinking cursor */
-@utility intro-typing {
-    @media (width >= 48rem) and (prefers-reduced-motion: no-preference) {
-        display: inline-block;
-        padding-right: 6px;
-        border-right: solid 3px var(--color-caribbean);
-        white-space: nowrap;
-        overflow: hidden;
-        animation: var(--animate-typing);
+/* The blinking block cursor after the hero's rotating role */
+@utility caret {
+    display: inline-block;
+    width: 0.55em;
+    height: 0.9em;
+    margin-left: 6px;
+    vertical-align: -0.08em;
+    background-color: var(--color-caribbean);
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: var(--animate-blink);
     }
 }
 

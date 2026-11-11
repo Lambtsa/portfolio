@@ -7,8 +7,6 @@ interface ButtonProps {
   /* primary: filled green; outline: linen border that fills green on hover */
   variant?: "primary" | "outline";
   size?: "sm" | "md" | "lg";
-  /* Fades in after the hero title is typed (tablets and up) */
-  isAppearing?: boolean;
 }
 
 const variants = {
@@ -27,12 +25,11 @@ export const Button = ({
   href,
   variant = "outline",
   size = "md",
-  isAppearing = false,
 }: ButtonProps): ReactElement => {
   return (
     <Link
       href={href}
-      className={`inline-flex justify-center items-center text-center leading-none no-underline transition-colors ${variants[variant]} ${sizes[size]} ${isAppearing ? "intro-appear" : ""}`}
+      className={`inline-flex justify-center items-center text-center leading-none no-underline transition-colors ${variants[variant]} ${sizes[size]}`}
     >
       {content}
     </Link>

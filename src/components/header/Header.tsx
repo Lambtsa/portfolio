@@ -30,7 +30,7 @@ export const Header = (): ReactElement => {
   const isScrolled = y !== 0;
 
   return (
-    <header className={`fixed top-0 left-0 z-[1000] w-full intro-appear transition-colors ${isScrolled ? "bg-eerie/80 backdrop-blur-md" : "bg-transparent"}`}>
+    <header className={`fixed top-0 left-0 z-[1000] w-full rise-in transition-colors ${isScrolled ? "bg-eerie/80 backdrop-blur-md" : "bg-transparent"}`}>
       <div className="flex justify-between items-center gap-4 max-w-pc mx-auto p-4">
         <a href="#top" className="flex items-center gap-3 text-lg text-linen no-underline">
           <Image src={Logo} alt="" priority className="size-10" />
