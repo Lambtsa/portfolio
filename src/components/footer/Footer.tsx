@@ -8,14 +8,15 @@ export const Footer = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <footer className="flex justify-center items-center min-w-full p-4 bg-smoke">
-      <p className="text-center text-sm leading-4 text-linen/70">
+    <footer className="flex flex-wrap justify-between gap-4 w-full max-w-pc mx-auto px-4 pt-4 pb-10 text-sm text-linen/60">
+      <p>
         {t({
           id: "footer.copyright",
         }, {
           date: new Date().getFullYear(),
         })}
       </p>
+      <p>Built with Next.js · Paris</p>
     </footer>
   );
 };

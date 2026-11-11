@@ -2,30 +2,30 @@ import type { ReactElement } from "react";
 
 const statistics = [
   {
-    title: "5+",
-    subtitle: "Number of years experience in tech",
+    title: "9+",
+    subtitle: "years in tech",
   },
   {
     title: "4",
-    subtitle: "Number of Products I have launched",
+    subtitle: "products launched",
   },
   {
-    title: "3",
-    subtitle: "Number of spoken languages",
+    title: "4",
+    subtitle: "spoken languages",
   },
   {
     title: "6",
-    subtitle: "Number of countries I have worked in",
+    subtitle: "countries worked in",
   },
 ];
 
 export const Stats = (): ReactElement => {
   return (
-    <section className="grid grid-cols-4 max-xs:grid-cols-2 justify-center items-start gap-8 px-4 py-12 bg-smoke">
+    <section className="grid grid-cols-4 max-md:grid-cols-2 gap-5 max-w-pc mx-auto px-4 pb-[120px] max-md:pb-20">
       {statistics.map((stat) => (
-        <div key={stat.subtitle} className="flex flex-col justify-start items-center gap-4 text-center">
-          <h3 className="w-full text-4xl leading-6 font-bold text-caribbean">{stat.title}</h3>
-          <p className="body-text">{stat.subtitle}</p>
+        <div key={stat.subtitle} className="p-7 rounded-3xl border border-linen/10">
+          <p className="text-5xl leading-none text-caribbean">{stat.title}</p>
+          <p className="mt-3 text-[15px] text-linen/70">{stat.subtitle}</p>
         </div>
       ))}
     </section>

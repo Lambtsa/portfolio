@@ -1,7 +1,6 @@
 import type { ReactElement } from "react";
 
-import { About } from "@/components/about";
-import { Apps } from "@/components/apps";
+import { Contact } from "@/components/contact";
 import { Experience } from "@/components/experience";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -16,12 +15,11 @@ export const HomeScreen = (): ReactElement => {
       <main className="flex-[1_1_100%] overflow-x-hidden min-w-full max-w-screen bg-eerie">
         <Header />
         <Jumbotron />
-        <About />
-        <Projects />
         <Stats />
-        <Skills />
         <Experience />
-        <Apps />
+        <Projects />
+        <Skills />
+        <Contact />
       </main>
       <Footer />
     </>

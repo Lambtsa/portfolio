@@ -2,65 +2,142 @@ import Image, { type StaticImageData } from "next/image";
 import type { ReactElement } from "react";
 
 import AudiolinxIcon from "@/assets/audiolinx.svg";
-import CharlieIcon from "@/assets/charlie.svg";
-import SmokeyIcon from "@/assets/smokey_monkey.svg";
-import UbiquitiIcon from "@/assets/ubiquiti.svg";
+import { SectionHeading } from "@/components/section_heading";
 
-interface ProjectApp {
+interface Project {
   name: string;
+  tagline: string;
   description: string;
+  features: string[];
+  stack: string[];
+  /* The "Under the hood" panel: one line per part of the stack */
+  details: { title: string;
+    text: string }[];
   icon: StaticImageData;
   url: string;
+  host: string;
 }
 
-const apps: ProjectApp[] = [
+/* Live projects, each shown as a full-width card */
+const projects: Project[] = [
   {
     name: "AudioLinx",
-    description: "A cute little app where you enter an artist, a song title or a url and it will generate urls for that song for the most popular streaming services. Built with Nextjs, typescript and styled components using an Express RESTApi.",
+    tagline: "One link. Every streaming service.",
+    description: "You’re on Spotify, your friends are on Apple Music, Deezer or YouTube. Search for a song or paste a link from any of them, and AudioLinx gives you one share page where everyone can listen on the app they already use.",
+    features: [
+      "Exact matches across services by ISRC, the code that identifies a recording",
+      "Share pages with a playable preview that remember each listener’s usual service",
+      "Privacy first: no accounts, no listening history, only anonymous daily totals",
+    ],
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Kysely", "Valkey", "Docker", "Tailwind", "Zod", "Grafana"],
+    details: [
+      {
+        title: "Next.js + TypeScript",
+        text: "App, share pages and API routes, validated end to end with Zod" 
+      },
+      {
+        title: "PostgreSQL + Kysely",
+        text: "Type-checked queries and timestamped migrations run on deploy" 
+      },
+      {
+        title: "Valkey",
+        text: "Rate limiting and a daily budget for the YouTube API quota" 
+      },
+      {
+        title: "Docker, Grafana, Loki",
+        text: "Self-hosted, monitored, with nightly backups and CI on every PR" 
+      },
+    ],
     icon: AudiolinxIcon,
     url: "https://audiolinx.xyz/",
+    host: "audiolinx.xyz",
+  },
+];
+
+/* Placeholders for projects on the way; remove one when its project goes live */
+const upcoming = [
+  {
+    title: "Next project",
+    description: "Launching in the coming days." 
   },
   {
-    name: "The Smokey Monkey",
-    description: "The Smokey Monkey is a BBQ SmokeHouse in Strasbourg owned by former colleagues of mine from a past life as a Bartender. They wanted an online presence to be able to show their brand, take reservations and give their customers more information about why they decided to open their amazing smokehouse.",
-    icon: SmokeyIcon,
-    url: "https://smokey-monkey.com/",
-  },
-  {
-    name: "Charlie's Closet",
-    description: "An app for parents in France to be able to rent second hand baby clothes during the first months of their babies lives. This circular economy app is built in ReactJS, Typescript on the client side and ExpressJS, MongoDB and Typescript on the server side.",
-    icon: CharlieIcon,
-    url: "https://charlies-closet.com/",
-  },
-  {
-    name: "Reminders App",
-    description: "A Reminders app allowing users to add, edit and collaborate on tasks in realtime. Built with ReactJS, Typescript, Socket.io and Beautiful dnd on the client side and ExpressJS, Typescript, Socket.io and MongoDB on the server side.",
-    icon: UbiquitiIcon,
-    url: "https://ui-tasks.netlify.app/",
+    title: "More on the way",
+    description: "New side projects are in the works." 
   },
 ];
 
 export const Projects = (): ReactElement => {
   return (
-    <section className="flex flex-col items-center h-full max-w-pc mx-auto py-24 max-md:px-4 max-md:py-12">
-      <div className="flex flex-col justify-center items-center gap-4 mb-4 text-center">
-        <h2 className="section-title text-slate-blue">My projects</h2>
-        <p className="body-text">Here are just a few of the apps I have worked on recently.</p>
-      </div>
-      <div className="grid grid-cols-2 max-md:grid-cols-1 justify-center items-center gap-4 h-fit">
-        {apps.map((app) => (
+    <section id="built" className="max-w-pc mx-auto px-4 pb-[120px] max-md:pb-20 scroll-mt-24">
+      <SectionHeading
+        index="02"
+        title="What I've built"
+        titleClassName="text-slate-blue"
+        aside={<p className="max-w-[420px] body-text">Side projects I design, build and run myself. More on the way.</p>}
+      />
+      <div className="flex flex-col gap-5">
+        {projects.map((project) => (
           <a
-            key={app.name}
-            href={app.url}
+            key={project.name}
+            href={project.url}
             target="_blank"
             rel="noreferrer"
-            className="flex flex-col justify-start items-center gap-4 h-full m-4 px-4 py-8 rounded-[20px] no-underline text-center transition-colors hover:bg-linen/20"
+            className="group flex flex-wrap gap-10 p-10 max-md:p-6 rounded-[28px] border border-slate-blue/35 bg-smoke no-underline transition-colors hover:border-slate-blue/70"
           >
-            <Image src={app.icon} alt="" />
-            <h3 className="card-title text-linen">{app.name}</h3>
-            <p className="body-text">{app.description}</p>
+            <div className="flex-[999_1_520px] min-w-0 flex flex-col gap-5">
+              <div className="flex items-center gap-3">
+                <div className="flex justify-center items-center size-[72px] rounded-[20px] bg-linen/5">
+                  <Image src={project.icon} alt="" className="size-[52px]" />
+                </div>
+                <span className="inline-flex items-center gap-2 min-h-[30px] px-3 rounded-full bg-caribbean/10 text-[13px] text-caribbean">
+                  <span aria-hidden="true" className="size-[7px] rounded-full bg-caribbean" />
+                  Live
+                </span>
+              </div>
+              <div>
+                <h3 className="text-[40px] leading-tight text-linen">{project.name}</h3>
+                <p className="mt-2.5 text-2xl text-slate-blue">{project.tagline}</p>
+              </div>
+              <p className="max-w-[640px] text-lg leading-relaxed text-linen/75">{project.description}</p>
+              <ul className="flex flex-col gap-2.5">
+                {project.features.map((feature) => (
+                  <li key={feature} className="flex gap-3 text-base leading-relaxed text-linen/75">
+                    <span aria-hidden="true" className="text-caribbean">›</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <ul aria-label={"Built with"} className="flex flex-wrap gap-2">
+                {project.stack.map((tech) => (
+                  <li key={tech} className="inline-flex items-center min-h-[30px] px-3 rounded-full border border-linen/10 text-[13px] text-linen/80">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex-[1_1_280px] flex flex-col justify-between gap-6 p-7 rounded-[20px] bg-linen/[0.04]">
+              <div className="flex flex-col gap-4.5">
+                <p className="text-[13px] text-linen/50">Under the hood</p>
+                {project.details.map((detail) => (
+                  <div key={detail.title}>
+                    <p className="text-base text-hot-pink">{detail.title}</p>
+                    <p className="mt-1 text-sm leading-normal text-linen/65">{detail.text}</p>
+                  </div>
+                ))}
+              </div>
+              <span className="text-base text-hot-pink transition-colors group-hover:text-red-purple">Open {project.host} ↗</span>
+            </div>
           </a>
         ))}
+        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-5">
+          {upcoming.map((item) => (
+            <div key={item.title} className="flex flex-col gap-3.5 min-h-[200px] p-8 rounded-[28px] border border-dashed border-linen/20">
+              <span className="self-start inline-flex items-center min-h-7 px-3 rounded-full bg-linen/5 text-[13px] text-linen/70">Coming soon</span>
+              <h3 className="text-2xl text-linen/85">{item.title}</h3>
+              <p className="text-[15px] leading-relaxed text-linen/55">{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

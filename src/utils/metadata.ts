@@ -14,8 +14,8 @@ interface Pages {
 
 export const pageData: Pages = {
   index: {
-    title: "Tom Lamb | Full Stack Javascript Developer and Product Manager.",
-    description: "I am full stack Javascript developer and product manager who has worked in both LegalTech and Fintech within the Stockholm startup ecosystem.",
+    title: "Tom Lamb | Tech Lead & Software Engineer",
+    description: "Tech lead and software engineer in Paris. Java, Kafka, Kubernetes and TypeScript, with a background in product management and UX/UI design.",
     url: routes.index(),
   },
 };

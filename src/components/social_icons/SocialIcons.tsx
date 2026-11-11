@@ -30,7 +30,7 @@ const socialMediaLinks: SocialMediaLink[] = [
 
 export const SocialIcons = (): ReactElement => {
   return (
-    <div className="absolute bottom-0 left-4 flex flex-row justify-center items-center gap-2 my-2 intro-appear">
+    <div className="flex flex-row items-center gap-3">
       {socialMediaLinks.map((social) => (
         <a
           key={social.name}
@@ -38,9 +38,9 @@ export const SocialIcons = (): ReactElement => {
           target="_blank"
           rel="noopener noreferrer"
           href={social.link}
-          className="text-hot-pink transition-colors hover:text-red-purple"
+          className="inline-flex justify-center items-center size-[50px] rounded-xl bg-hot-pink/10 text-hot-pink transition-colors hover:bg-hot-pink/20 hover:text-red-purple"
         >
-          <Icon icon={social.icon} />
+          <Icon icon={social.icon} size={22} />
         </a>
       ))}
     </div>

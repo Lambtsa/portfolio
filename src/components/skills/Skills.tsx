@@ -1,51 +1,64 @@
-import Image, { type StaticImageData } from "next/image";
 import type { ReactElement } from "react";
 
-import ProductManagementIcon from "@/assets/product_management.svg";
-import WebDesignIcon from "@/assets/web_design.svg";
-import WebDevelopmentIcon from "@/assets/web_development.svg";
-
-interface Skill {
+interface StackGroup {
   name: string;
-  description: string;
-  icon: StaticImageData;
+  /* A text-* class for the group title */
+  titleClassName: string;
+  /* [technology, daily driver?] */
+  items: [string, boolean?][];
 }
 
-const skills: Skill[] = [
+const groups: StackGroup[] = [
   {
-    name: "Full Stack development",
-    description: "From databases to websites like this one built in NextJS, I love building full stack applications in typescript where I can design the whole architecture and also a beautiful client side app.",
-    icon: WebDevelopmentIcon,
+    name: "Backend & data",
+    titleClassName: "text-caribbean",
+    items: [["Java", true], ["Kafka", true], ["PostgreSQL", true], ["Node.js"], ["GraphQL"], ["MongoDB"], ["Valkey"], ["Python"]],
   },
   {
-    name: "Product Management",
-    description: "By constantly optimising internal processes and ensuring we always have a big picture of the product and its objectives, I drive my teams by having a clear overview of all the moving pieces in order to maintain agility and productivity.",
-    icon: ProductManagementIcon,
+    name: "Front end",
+    titleClassName: "text-hot-pink",
+    items: [["TypeScript", true], ["React", true], ["Next.js", true], ["Vue"], ["Svelte"], ["HTML & CSS"]],
   },
   {
-    name: "UX/UI and web design",
-    description: "With a keen interest in human psychology and its effects on UX and a strong belief in user centered design, I push to implement clean and efficient design, based on a fine balance between intuition, innovation and user feedback.",
-    icon: WebDesignIcon,
+    name: "Cloud & infra",
+    titleClassName: "text-violet-400",
+    items: [["Kubernetes", true], ["Docker", true], ["Grafana"], ["Loki"], ["CI/CD"]],
+  },
+  {
+    name: "Product & design",
+    titleClassName: "text-blue-400",
+    items: [["Figma"], ["UX/UI design"], ["Product strategy"], ["Roadmapping"]],
   },
 ];
 
+/* The "My stack" section: every technology as a tile, daily drivers marked in green */
 export const Skills = (): ReactElement => {
   return (
-    <section className="flex flex-col items-center h-full max-w-pc mx-auto py-24 max-xs:px-4 max-xs:py-12">
-      <div className="flex flex-col justify-center items-center gap-4 max-w-tablet mb-4 text-center">
-        <h2 className="section-title text-bluetiful">My Key Skills</h2>
-        <p className="body-text">
-          Through many years of experience in business management, product
-          management and web development, I have developed key skills during my
-          career.
+    <section id="stack" className="max-w-pc mx-auto px-4 pb-[120px] max-md:pb-20 scroll-mt-24">
+      <p className="text-sm text-linen/50">03 /</p>
+      <div className="flex flex-wrap justify-between items-end gap-5 mt-1.5 mb-9">
+        <h2 className="section-title text-bluetiful">My stack</h2>
+        <p className="inline-flex items-center gap-2.5 text-[15px] text-linen/70">
+          <span aria-hidden="true" className="size-2.5 rounded-full bg-caribbean" />
+          Daily drivers
         </p>
       </div>
-      <div className="grid grid-cols-3 max-md:grid-cols-1 justify-center items-start gap-4">
-        {skills.map((skill) => (
-          <div key={skill.name} className="flex flex-col justify-center items-center gap-4 m-4 px-4 py-8 rounded-[20px] text-center">
-            <Image src={skill.icon} alt="" />
-            <h3 className="card-title text-hot-pink">{skill.name}</h3>
-            <p className="body-text">{skill.description}</p>
+      <div className="grid grid-cols-2 max-md:grid-cols-1 gap-5">
+        {groups.map((group) => (
+          <div key={group.name} className="flex flex-col gap-5 p-7 rounded-[28px] border border-linen/10 bg-smoke">
+            <h3 className={`text-lg ${group.titleClassName}`}>{group.name}</h3>
+            <ul className="flex flex-wrap gap-2.5">
+              {group.items.map(([tech, isDaily]) => (
+                <li
+                  key={tech}
+                  className={`inline-flex items-center gap-2.5 min-h-[52px] px-4.5 rounded-[14px] border text-xl ${isDaily ? "border-caribbean/50 bg-caribbean/10 text-linen" : "border-linen/10 text-linen/85"}`}
+                >
+                  {isDaily && <span aria-hidden="true" className="size-2 rounded-full bg-caribbean" />}
+                  {tech}
+                  {isDaily && <span className="sr-only"> (daily driver)</span>}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
