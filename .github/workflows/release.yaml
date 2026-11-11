@@ -1,0 +1,27 @@
+name: Release
+
+# Description
+# Tagging a new release from the main page of the repository and publish it in production.
+
+on:
+  release:
+    types:
+      - published
+
+# Default token permissions for every job: read the code, nothing else
+permissions:
+  contents: read
+  # Push the image to ghcr.io
+  packages: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build_for_prod:
+    name: Build for PROD
+    uses: ./.github/workflows/project_build.yaml
+    with:
+      publish: true
+    secrets: inherit
