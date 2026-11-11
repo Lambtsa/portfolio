@@ -1,46 +1,33 @@
-import { useMemo } from "react";
-import {
-  StatContainer,
-  StatsSection,
-  StatsText,
-  StatsTitle,
-} from "./Stats.styles";
-import { v4 as uuid } from "uuid";
+import type { ReactElement } from "react";
 
-export const Stats = (): JSX.Element => {
-  const statistics = useMemo(
-    () => [
-      {
-        title: "5+",
-        subtitle: "Number of years experience in tech",
-      },
-      {
-        title: "4",
-        subtitle: "Number of Products I have launched",
-      },
-      {
-        title: "3",
-        subtitle: "Number of spoken languages",
-      },
-      {
-        title: "6",
-        subtitle: "Number of countries I have worked in",
-      },
-    ],
-    []
-  );
+const statistics = [
+  {
+    title: "5+",
+    subtitle: "Number of years experience in tech",
+  },
+  {
+    title: "4",
+    subtitle: "Number of Products I have launched",
+  },
+  {
+    title: "3",
+    subtitle: "Number of spoken languages",
+  },
+  {
+    title: "6",
+    subtitle: "Number of countries I have worked in",
+  },
+];
 
-  const hasStats = !!statistics.length;
-
+export const Stats = (): ReactElement => {
   return (
-    <StatsSection>
-      {hasStats &&
-        statistics.map((stat) => (
-          <StatContainer key={uuid()}>
-            <StatsTitle>{stat.title}</StatsTitle>
-            <StatsText>{stat.subtitle}</StatsText>
-          </StatContainer>
-        ))}
-    </StatsSection>
+    <section className="grid grid-cols-4 max-xs:grid-cols-2 justify-center items-start gap-8 px-4 py-12 bg-smoke">
+      {statistics.map((stat) => (
+        <div key={stat.subtitle} className="flex flex-col justify-start items-center gap-4 text-center">
+          <h3 className="w-full text-4xl leading-6 font-bold text-caribbean">{stat.title}</h3>
+          <p className="body-text">{stat.subtitle}</p>
+        </div>
+      ))}
+    </section>
   );
 };

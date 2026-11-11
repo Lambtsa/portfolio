@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/*
+ * The portfolio's dark theme (colours from https://coolors.co/).
+ */
+@theme {
+    /* --- Fonts --- */
+    --font-mono: "Share Tech Mono", ui-monospace, monospace;
+
+    /* --- Breakpoints: xs is the old "mobile" width (460px and below) --- */
+    --breakpoint-xs: 461px;
+
+    /* --- Content widths (max-w-*) --- */
+    --container-mobile: 460px;
+    --container-tablet: 768px;
+    --container-pc: 1180px;
+    --container-tv: 1400px;
+
+    /* --- Colours --- */
+    --color-eerie: #1A1917;      /* page background */
+    --color-smoke: #121211;      /* alternate sections, footer */
+    --color-linen: #F8ECDF;      /* headings and main text (use /70, /40, /20 for softer text) */
+    --color-caribbean: #34D399;  /* green titles, button hover */
+    --color-hot-pink: #F472B6;   /* card titles, links, social icons */
+    --color-red-purple: #DB2777; /* social icon hover */
+    --color-slate-blue: #8B5CF6; /* "My projects" title */
+    --color-bluetiful: #2563EB;  /* "My Key Skills" title */
+
+    /* --- Animations --- */
+    --animate-appear: appear 2s ease-in 5s 1 normal both;
+    --animate-typing: typing 5s steps(30, end) 2s 1 normal both, cursor 600ms steps(30, end) infinite;
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes cursor {
+        from {
+            border-right-color: #34D399;
+        }
+        to {
+            border-right-color: transparent;
+        }
+    }
+}
+
+@layer base {
+    html,
+    body {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    body {
+        font-family: var(--font-mono);
+        line-height: 1;
+        color: var(--color-linen);
+        background-color: var(--color-eerie);
+    }
+
+    button:not(:disabled),
+    a {
+        cursor: pointer;
+    }
+}
+
+/* Plays the intro animations on tablets and up only, and never when motion is reduced */
+@utility intro-appear {
+    @media (width >= 48rem) and (prefers-reduced-motion: no-preference) {
+        animation: var(--animate-appear);
+    }
+}
+
+/* The hero title typed out letter by letter, with a blinking cursor */
+@utility intro-typing {
+    @media (width >= 48rem) and (prefers-reduced-motion: no-preference) {
+        border-right: solid 3px rgba(0, 255, 0, 0.75);
+        white-space: nowrap;
+        overflow: hidden;
+        margin: 0 auto;
+        animation: var(--animate-typing);
+    }
+}
+
+/* Section titles */
+@utility section-title {
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 700;
+    width: 100%;
+}
+
+/* Card titles */
+@utility card-title {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    width: 100%;
+}
+
+/* Running text */
+@utility body-text {
+    font-size: 16px;
+    line-height: 24px;
+    color: color-mix(in oklab, var(--color-linen) 70%, transparent);
+}

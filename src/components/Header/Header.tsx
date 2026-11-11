@@ -1,29 +1,30 @@
-import { HeaderContainer, InnerContainer } from "./Header.styles";
-import { ReactComponent as Logo } from "@assets/logo.svg";
-import { Button } from "@components/Button";
-import { useMemo } from "react";
-import { useWindowScroll } from "react-use";
-import { useTranslation } from "@hooks/useTranslation";
+"use client";
 
-export const Header = (): JSX.Element => {
+import Image from "next/image";
+import type { ReactElement } from "react";
+import { useWindowScroll } from "react-use";
+
+import Logo from "@/assets/logo.svg";
+import { Button } from "@/components/button";
+import { URLS } from "@/constants/url";
+import { useTranslation } from "@/hooks/useTranslation";
+
+export const Header = (): ReactElement => {
   const { y } = useWindowScroll();
   const { t } = useTranslation();
-  /* ######################################## */
-  /* State */
-  /* ######################################## */
-  const isScrolled = useMemo(() => {
-    return y !== 0;
-  }, [y]);
+  const isScrolled = y !== 0;
 
   return (
-    <HeaderContainer isScrolled={isScrolled}>
-      <InnerContainer size="pc">
-        <Logo />
+    <header className={`fixed top-0 left-0 z-[1000] w-full h-[70px] intro-appear transition-colors ${isScrolled ? "bg-eerie/80" : "bg-transparent"}`}>
+      <div className="flex justify-between items-center gap-4 h-full max-w-pc mx-auto p-4">
+        <Image src={Logo} alt="Tom Lamb" priority />
         <Button
-          href="mailto:hello@tom-lamb.com"
-          content={t({ id: "jumbotron.btn" })}
+          href={URLS.EMAIL}
+          content={t({
+            id: "jumbotron.btn",
+          })}
         />
-      </InnerContainer>
-    </HeaderContainer>
+      </div>
+    </header>
   );
 };
