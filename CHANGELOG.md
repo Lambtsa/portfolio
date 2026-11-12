@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Lambtsa/portfolio/compare/v1.0.0...v1.1.0) (2026-11-12)
+
+
+### 🚀 Features
+
+* update metadata ([a122a8f](https://github.com/Lambtsa/portfolio/commit/a122a8f4b9c2bfe15c16bee9e23f3d4631ed3916))
+
 ## [1.0.0](https://github.com/Lambtsa/portfolio/compare/v0.1.0...v1.0.0) (2026-11-12)
 
 
