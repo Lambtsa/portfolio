@@ -16,7 +16,6 @@ export const Footer = (): ReactElement => {
           date: new Date().getFullYear(),
         })}
       </p>
-      <p>Built with Next.js · Paris</p>
     </footer>
   );
 };

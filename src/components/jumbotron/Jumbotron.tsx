@@ -3,7 +3,7 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
 
-import TomImg from "@/assets/IMG_3377.png";
+import TomImg from "@/assets/tom-lamb-portrait.webp";
 import { Button } from "@/components/button";
 import { SocialIcons } from "@/components/social_icons";
 import { URLS } from "@/constants/url";
@@ -53,7 +53,8 @@ export const Jumbotron = (): ReactElement => {
             src={TomImg}
             alt="Tom Lamb in a navy t-shirt and a flat cap"
             priority
-            sizes="(min-width: 768px) 400px, 100vw"
+            placeholder="blur"
+            sizes="(min-width: 952px) 300px, 100vw"
             className="w-full h-[380px] object-cover object-top rounded-[28px] border border-linen/10 rise-in [--rise-delay:220ms]"
           />
           <div className="flex flex-col gap-1.5 px-7 py-6 rounded-[28px] border border-slate-blue/30 bg-slate-blue/10 rise-in [--rise-delay:340ms]">

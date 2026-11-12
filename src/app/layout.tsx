@@ -48,7 +48,7 @@ const GoogleAnalytics = () => {
 };
 
 const RootLayout = ({ children }: LayoutProps) => (
-  <html lang="en">
+  <html lang="en-GB">
     <head>
       <GoogleAnalytics />
     </head>
