@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/*
+ * The portfolio's dark theme (colours from https://coolors.co/).
+ */
+@theme {
+    /* --- Fonts --- */
+    --font-mono: "Share Tech Mono", ui-monospace, monospace;
+
+    /* --- Breakpoints: xs is the old "mobile" width (460px and below) --- */
+    --breakpoint-xs: 461px;
+
+    /* --- Content widths (max-w-*) --- */
+    --container-mobile: 460px;
+    --container-tablet: 768px;
+    --container-pc: 1180px;
+    --container-tv: 1400px;
+
+    /* --- Colours --- */
+    --color-eerie: #1A1917;      /* page background */
+    --color-smoke: #121211;      /* alternate sections, footer */
+    --color-linen: #F8ECDF;      /* headings and main text (use /70, /40, /20 for softer text) */
+    --color-caribbean: #34D399;  /* green titles, primary buttons, "daily driver" marks */
+    --color-hot-pink: #F472B6;   /* card titles, links, social icons */
+    --color-red-purple: #DB2777; /* social icon hover */
+    --color-slate-blue: #8B5CF6; /* "What I've built" title, "Currently" card */
+    --color-bluetiful: #3B82F6;  /* "My stack" title */
+
+    /* --- Animations --- */
+    --animate-rise: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    --animate-blink: blink 1s steps(1, end) infinite;
+
+    @keyframes rise {
+        from {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+}
+
+@layer base {
+    html,
+    body {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    body {
+        font-family: var(--font-mono);
+        line-height: 1;
+        color: var(--color-linen);
+        background-color: var(--color-eerie);
+    }
+
+    button:not(:disabled),
+    a {
+        cursor: pointer;
+    }
+}
+
+/*
+ * Rises and fades in on page load. Stagger elements with a delay class,
+ * e.g. [--rise-delay:160ms]. Never plays when motion is reduced.
+ */
+@utility rise-in {
+    @media (prefers-reduced-motion: no-preference) {
+        animation: var(--animate-rise);
+        animation-delay: var(--rise-delay, 0ms);
+    }
+}
+
+/* The blinking block cursor after the hero's rotating role */
+@utility caret {
+    display: inline-block;
+    width: 0.55em;
+    height: 0.9em;
+    margin-left: 6px;
+    vertical-align: -0.08em;
+    background-color: var(--color-caribbean);
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: var(--animate-blink);
+    }
+}
+
+/* Section titles */
+@utility section-title {
+    font-size: 44px;
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+/* Card titles */
+@utility card-title {
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+/* Running text */
+@utility body-text {
+    font-size: 17px;
+    line-height: 1.6;
+    color: color-mix(in oklab, var(--color-linen) 70%, transparent);
+}

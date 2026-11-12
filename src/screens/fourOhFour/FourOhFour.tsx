@@ -1,24 +1,18 @@
-import { Button } from "@components/Button";
-import { Main } from "@components/Main";
-import { routes } from "@helpers/routes";
-import {
-  FourOhFourContainer,
-  FourOhFourSubtitle,
-  FourOhFourTitle,
-} from "./FourOhFour.styles";
+import type { ReactElement } from "react";
 
-export const FourOhFour = (): JSX.Element => {
+import { Button } from "@/components/button";
+import { routes } from "@/utils/routes";
+
+export const FourOhFour = (): ReactElement => {
   return (
-    <>
-      <Main>
-        <FourOhFourContainer>
-          <FourOhFourTitle>{"404"}</FourOhFourTitle>
-          <FourOhFourSubtitle>
-            {"Oups! Looks like this page doesn't exist just yet."}
-          </FourOhFourSubtitle>
-          <Button href={routes.index()} content="Return to Home" />
-        </FourOhFourContainer>
-      </Main>
-    </>
+    <main className="flex-[1_1_100%] overflow-x-hidden min-w-full max-w-screen bg-eerie">
+      <div className="relative flex flex-col justify-center items-center gap-4 h-screen min-h-screen max-w-pc mx-auto px-4">
+        <h1 className="max-w-tablet text-center text-5xl leading-[48px] font-bold text-linen">404</h1>
+        <p className="max-w-tablet text-center body-text">
+          {"Oups! Looks like this page doesn't exist just yet."}
+        </p>
+        <Button href={routes.index()} content="Return to Home" />
+      </div>
+    </main>
   );
 };

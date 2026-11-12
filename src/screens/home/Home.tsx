@@ -1,31 +1,26 @@
-import { About } from "@components/About";
-import { Apps } from "@components/Apps";
-import { Experience } from "@components/Experience";
-import { Footer } from "@components/Footer";
-import { Header } from "@components/Header";
-import { Jumbotron } from "@components/Jumbotron";
-import { Main } from "@components/Main";
-import { Projects } from "@components/Projects";
-import { Skills } from "@components/Skills";
-import { Stats } from "@components/Stats";
+import type { ReactElement } from "react";
 
-export const HomeScreen = (): JSX.Element => {
-  /* ################################################## */
-  /* State */
-  /* ################################################## */
+import { Contact } from "@/components/contact";
+import { Experience } from "@/components/experience";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Jumbotron } from "@/components/jumbotron";
+import { Projects } from "@/components/projects";
+import { Skills } from "@/components/skills";
+import { Stats } from "@/components/stats";
 
+export const HomeScreen = (): ReactElement => {
   return (
     <>
-      <Main>
+      <main className="flex-[1_1_100%] overflow-x-hidden min-w-full max-w-screen bg-eerie">
         <Header />
         <Jumbotron />
-        <About />
-        <Projects />
         <Stats />
-        <Skills />
         <Experience />
-        <Apps />
-      </Main>
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
     </>
   );
