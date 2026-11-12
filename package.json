@@ -20,7 +20,7 @@
   "dependencies": {
     "react": "19.2.6",
     "react-dom": "19.2.6",
-    "react-intl": "^10.1.5",
+    "react-intl": "^12.1.6",
     "react-use": "^17.5.0"
   },
   "devDependencies": {
