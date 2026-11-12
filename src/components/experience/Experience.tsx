@@ -35,7 +35,7 @@ const hats = [
 
 const jobs: Job[] = [
   {
-    company: "Decathlon Technology",
+    company: "Decathlon Digital",
     location: "Paris, France",
     icon: DecathlonIcon,
     url: "https://digital.decathlon.net/",
@@ -127,7 +127,6 @@ export const Experience = (): ReactElement => {
         )}
       />
       <ul aria-label="Roles I have held" className="flex flex-wrap gap-2.5 mb-10">
-        <li className="inline-flex items-center min-h-[34px] px-3.5 rounded-full bg-caribbean/10 text-sm text-caribbean">Hats I&apos;ve worn</li>
         {hats.map((hat) => (
           <li key={hat} className="inline-flex items-center min-h-[34px] px-3.5 rounded-full border border-linen/15 text-sm text-linen/85">
             {hat}

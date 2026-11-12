@@ -25,7 +25,6 @@ const projects: Project[] = [
     tagline: "One link. Every streaming service.",
     description: "You’re on Spotify, your friends are on Apple Music, Deezer or YouTube. Search for a song or paste a link from any of them, and AudioLinx gives you one share page where everyone can listen on the app they already use.",
     features: [
-      "Exact matches across services by ISRC, the code that identifies a recording",
       "Share pages with a playable preview that remember each listener’s usual service",
       "Privacy first: no accounts, no listening history, only anonymous daily totals",
     ],
@@ -40,8 +39,8 @@ const projects: Project[] = [
         text: "Type-checked queries and timestamped migrations run on deploy" 
       },
       {
-        title: "Valkey",
-        text: "Rate limiting and a daily budget for the YouTube API quota" 
+        title: "Tailwind",
+        text: "Translate Figma designs directly into scalable, maintainable interfaces"
       },
       {
         title: "Docker, Grafana, Loki",

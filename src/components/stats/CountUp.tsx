@@ -69,7 +69,7 @@ export const CountUp = ({ value }: CountUpProps): ReactElement => {
   }, [hasNumber, target]);
 
   return (
-    <p ref={ref} className="text-5xl leading-none text-caribbean tabular-nums">
+    <p ref={ref} className="text-4xl leading-none text-caribbean tabular-nums">
       {match ? `${current}${suffix}` : value}
     </p>
   );

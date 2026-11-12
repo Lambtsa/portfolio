@@ -8,16 +8,16 @@ const statistics = [
     subtitle: "years in tech",
   },
   {
-    title: "4",
-    subtitle: "products launched",
-  },
-  {
-    title: "4",
-    subtitle: "spoken languages",
-  },
-  {
     title: "6",
-    subtitle: "countries worked in",
+    subtitle: "countries",
+  },
+  {
+    title: "250k+",
+    subtitle: "active users impacted",
+  },
+  {
+    title: "10+",
+    subtitle: "0-to-1 products shipped",
   },
 ];
 

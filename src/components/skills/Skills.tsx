@@ -12,22 +12,22 @@ const groups: StackGroup[] = [
   {
     name: "Backend & data",
     titleClassName: "text-caribbean",
-    items: [["Java", true], ["Kafka", true], ["PostgreSQL", true], ["Node.js"], ["GraphQL"], ["MongoDB"], ["Valkey"], ["Python"]],
+    items: [["Java", true], ["PostgreSQL", true], ["Node.js", true], ["Kafka"], ["GraphQL", true], ["MongoDB"], ["Valkey"], ["Python"]],
   },
   {
     name: "Front end",
     titleClassName: "text-hot-pink",
-    items: [["TypeScript", true], ["React", true], ["Next.js", true], ["Vue"], ["Svelte"], ["HTML & CSS"]],
+    items: [["TypeScript", true], ["Next.js", true], ["React", true], ["Vue"], ["Tanstack", true], ["Svelte"], ["HTML & CSS"]],
   },
   {
     name: "Cloud & infra",
     titleClassName: "text-violet-400",
-    items: [["Kubernetes", true], ["Docker", true], ["Grafana"], ["Loki"], ["CI/CD"]],
+    items: [["Kubernetes", true], ["Docker", true], ["Helm"], ["Grafana"], ["Github actions", true], ["Loki"], ["CI/CD"]],
   },
   {
     name: "Product & design",
     titleClassName: "text-blue-400",
-    items: [["Figma"], ["UX/UI design"], ["Product strategy"], ["Roadmapping"]],
+    items: [["Design Systems", true], ["User Research", true], ["Prototyping"], ["Technical Specs", true], ["Agile / Scrum", true], ["Product strategy"]]
   },
 ];
 
