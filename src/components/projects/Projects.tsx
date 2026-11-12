@@ -2,6 +2,7 @@ import Image, { type StaticImageData } from "next/image";
 import type { ReactElement } from "react";
 
 import AudiolinxIcon from "@/assets/audiolinx.svg";
+import CopainsMauiIcon from "@/assets/copains_maui.svg";
 import { SectionHeading } from "@/components/section_heading";
 
 interface Project {
@@ -10,9 +11,6 @@ interface Project {
   description: string;
   features: string[];
   stack: string[];
-  /* The "Under the hood" panel: one line per part of the stack */
-  details: { title: string;
-    text: string }[];
   icon: StaticImageData;
   url: string;
   host: string;
@@ -29,36 +27,27 @@ const projects: Project[] = [
       "Privacy first: no accounts, no listening history, only anonymous daily totals",
     ],
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Kysely", "Valkey", "Docker", "Tailwind", "Zod", "Grafana"],
-    details: [
-      {
-        title: "Next.js + TypeScript",
-        text: "App, share pages and API routes, validated end to end with Zod" 
-      },
-      {
-        title: "PostgreSQL + Kysely",
-        text: "Type-checked queries and timestamped migrations run on deploy" 
-      },
-      {
-        title: "Tailwind",
-        text: "Translate Figma designs directly into scalable, maintainable interfaces"
-      },
-      {
-        title: "Docker, Grafana, Loki",
-        text: "Self-hosted, monitored, with nightly backups and CI on every PR" 
-      },
-    ],
     icon: AudiolinxIcon,
     url: "https://audiolinx.xyz/",
     host: "audiolinx.xyz",
+  },
+  {
+    name: "Les copains de Maui",
+    tagline: "Dog boarding and a holiday cottage in Alsace.",
+    description: "The website for a family-run dog boarding kennel and gîte surrounded by nature. Owners can see how their dogs will be looked after, check prices and conditions, and send a booking request for the cottage in a few clicks.",
+    features: [
+      "Available in French, English and German",
+      "Gîte booking requests sent straight to the owners’ inbox, with an interactive map to find the place",
+    ],
+    stack: ["Next.js", "TypeScript", "Tailwind", "react-intl", "React Hook Form", "Zod", "Mapbox", "Docker"],
+    icon: CopainsMauiIcon,
+    url: "https://lescopainsdemaui.com/",
+    host: "lescopainsdemaui.com",
   },
 ];
 
 /* Placeholders for projects on the way; remove one when its project goes live */
 const upcoming = [
-  {
-    title: "Next project",
-    description: "Launching in the coming days." 
-  },
   {
     title: "More on the way",
     description: "New side projects are in the works." 
@@ -81,17 +70,20 @@ export const Projects = (): ReactElement => {
             href={project.url}
             target="_blank"
             rel="noreferrer"
-            className="group flex flex-wrap gap-10 p-10 max-md:p-6 rounded-[28px] border border-slate-blue/35 bg-smoke no-underline transition-colors hover:border-slate-blue/70"
+            className="group flex flex-col p-10 max-md:p-6 rounded-[28px] border border-slate-blue/35 bg-smoke no-underline transition-colors hover:border-slate-blue/70"
           >
-            <div className="flex-[999_1_520px] min-w-0 flex flex-col gap-5">
-              <div className="flex items-center gap-3">
-                <div className="flex justify-center items-center size-[72px] rounded-[20px] bg-linen/5">
-                  <Image src={project.icon} alt="" className="size-[52px]" />
+            <div className="min-w-0 flex flex-col gap-5">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex justify-center items-center size-[72px] rounded-[20px] bg-linen/5">
+                    <Image src={project.icon} alt="" className="size-[52px]" />
+                  </div>
+                  <span className="inline-flex items-center gap-2 min-h-[30px] px-3 rounded-full bg-caribbean/10 text-[13px] text-caribbean">
+                    <span aria-hidden="true" className="size-[7px] rounded-full bg-caribbean" />
+                    Live
+                  </span>
                 </div>
-                <span className="inline-flex items-center gap-2 min-h-[30px] px-3 rounded-full bg-caribbean/10 text-[13px] text-caribbean">
-                  <span aria-hidden="true" className="size-[7px] rounded-full bg-caribbean" />
-                  Live
-                </span>
+                <span className="text-base text-hot-pink transition-colors group-hover:text-red-purple">Open {project.host} ↗</span>
               </div>
               <div>
                 <h3 className="text-[40px] leading-tight text-linen">{project.name}</h3>
@@ -114,23 +106,11 @@ export const Projects = (): ReactElement => {
                 ))}
               </ul>
             </div>
-            <div className="flex-[1_1_280px] flex flex-col justify-between gap-6 p-7 rounded-[20px] bg-linen/[0.04]">
-              <div className="flex flex-col gap-4.5">
-                <p className="text-[13px] text-linen/50">Under the hood</p>
-                {project.details.map((detail) => (
-                  <div key={detail.title}>
-                    <p className="text-base text-hot-pink">{detail.title}</p>
-                    <p className="mt-1 text-sm leading-normal text-linen/65">{detail.text}</p>
-                  </div>
-                ))}
-              </div>
-              <span className="text-base text-hot-pink transition-colors group-hover:text-red-purple">Open {project.host} ↗</span>
-            </div>
           </a>
         ))}
-        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-5">
+        <div className="grid grid-cols-1 gap-5">
           {upcoming.map((item) => (
-            <div key={item.title} className="flex flex-col gap-3.5 min-h-[200px] p-8 rounded-[28px] border border-dashed border-linen/20">
+            <div key={item.title} className="flex flex-col gap-3.5 p-8 rounded-[28px] border border-dashed border-linen/20">
               <span className="self-start inline-flex items-center min-h-7 px-3 rounded-full bg-linen/5 text-[13px] text-linen/70">Coming soon</span>
               <h3 className="text-2xl text-linen/85">{item.title}</h3>
               <p className="text-[15px] leading-relaxed text-linen/55">{item.description}</p>

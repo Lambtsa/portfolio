@@ -102,7 +102,7 @@ const jobs: Job[] = [
   },
   {
     company: "Before tech",
-    location: "Ireland · Sweden · China",
+    location: "Strasbourg · Dublin · Stockholm · Shanghai · Edinburgh",
     roles: [{
       title: "Bartender",
       dates: "Before 2017" 
