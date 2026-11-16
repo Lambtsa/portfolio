@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Lambtsa/portfolio/compare/v1.1.0...v1.2.0) (2026-11-16)
+
+
+### 🚀 Features
+
+* add charlies-closet ([#10](https://github.com/Lambtsa/portfolio/issues/10)) ([a4084ad](https://github.com/Lambtsa/portfolio/commit/a4084ad4d2beac3fbbc58e78916522f9c0c113cb))
+
 ## [1.1.0](https://github.com/Lambtsa/portfolio/compare/v1.0.0...v1.1.0) (2026-11-12)
 
 
