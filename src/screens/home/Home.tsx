@@ -16,8 +16,8 @@ export const HomeScreen = (): ReactElement => {
         <Header />
         <Jumbotron />
         <Stats />
-        <Experience />
         <Projects />
+        <Experience />
         <Skills />
         <Contact />
       </main>

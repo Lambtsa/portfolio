@@ -117,7 +117,7 @@ export const Experience = (): ReactElement => {
   return (
     <section id="experience" className="max-w-pc mx-auto px-4 pb-[120px] max-md:pb-20 scroll-mt-24">
       <SectionHeading
-        index="01"
+        index="02"
         title="Experience"
         titleClassName="text-caribbean"
         aside={(
