@@ -2,11 +2,13 @@ import Image, { type StaticImageData } from "next/image";
 import type { ReactElement } from "react";
 
 import AudiolinxIcon from "@/assets/audiolinx.svg";
+import CharliesCloset from "@/assets/charlie.svg";
 import CopainsMauiIcon from "@/assets/copains_maui.svg";
 import { SectionHeading } from "@/components/section_heading";
 
 interface Project {
   name: string;
+  status: "live" | "pre-launch" | "upcoming"
   tagline: string;
   description: string;
   features: string[];
@@ -20,6 +22,7 @@ interface Project {
 const projects: Project[] = [
   {
     name: "AudioLinx",
+    status: "live",
     tagline: "One link. Every streaming service.",
     description: "You’re on Spotify, your friends are on Apple Music, Deezer or YouTube. Search for a song or paste a link from any of them, and AudioLinx gives you one share page where everyone can listen on the app they already use.",
     features: [
@@ -33,6 +36,7 @@ const projects: Project[] = [
   },
   {
     name: "Les copains de Maui",
+    status: "live",
     tagline: "Dog boarding and a holiday cottage in Alsace.",
     description: "The website for a family-run dog boarding kennel and gîte surrounded by nature. Owners can see how their dogs will be looked after, check prices and conditions, and send a booking request for the cottage in a few clicks.",
     features: [
@@ -44,7 +48,59 @@ const projects: Project[] = [
     url: "https://lescopainsdemaui.com/",
     host: "lescopainsdemaui.com",
   },
+  {
+    name: "Charlie's Closet",
+    status: "pre-launch",
+    tagline: "Kids' clothes that get passed from hand to hand.",
+    description:
+      "The website for a Strasbourg-based subscription service that rents out children's clothing by the month. When a piece is outgrown or worn out, families send it back, and it's repaired and passed on to another child. Parents can join the waitlist for the launch.",
+    features: [
+      "Waitlist sign-up form that goes straight to the founders' inbox",
+      "Explains the circular model: swaps within 48 hours, visible patch repairs and recycling of pieces that can't be saved",
+    ],
+    stack: ["Next.js", "TypeScript", "Tailwind", "React Hook Form", "Zod", "Docker"],
+    icon: CharliesCloset,
+    url: "https://charlies-closet.com",
+    host: "charlies-closet.com",
+  },
 ];
+
+const StatusTag = (status: Project["status"]) => {
+  switch (status) {
+    case "live": {
+      return (
+        <span className="inline-flex items-center gap-2 min-h-[30px] px-3 rounded-full bg-emerald-500/10 text-[13px] text-emerald-500">
+          <span aria-hidden="true" className="size-[7px] rounded-full bg-emerald-500" />
+          Live
+        </span>
+      );
+    }
+    case "upcoming": {
+      return (
+        <span className="inline-flex items-center gap-2 min-h-[30px] px-3 rounded-full bg-indigo-500/10 text-[13px] text-indigo-500">
+          <span aria-hidden="true" className="size-[7px] rounded-full bg-indigo-500" />
+          Upcoming
+        </span>
+      );
+    }
+    case "pre-launch": {
+      return (
+        <span className="inline-flex items-center gap-2 min-h-[30px] px-3 rounded-full bg-amber-500/10 text-[13px] text-amber-500">
+          <span aria-hidden="true" className="size-[7px] rounded-full bg-amber-500" />
+          Pre-launch
+        </span>
+      );
+    }
+    default: {
+      return (
+        <span className="inline-flex items-center gap-2 min-h-[30px] px-3 rounded-full bg-indigo-500/10 text-[13px] text-indigo-500">
+          <span aria-hidden="true" className="size-[7px] rounded-full bg-indigo-500" />
+          Upcoming
+        </span>
+      );
+    }
+  }
+};
 
 /* Placeholders for projects on the way; remove one when its project goes live */
 const upcoming = [
@@ -58,7 +114,7 @@ export const Projects = (): ReactElement => {
   return (
     <section id="built" className="max-w-pc mx-auto px-4 pb-[120px] max-md:pb-20 scroll-mt-24">
       <SectionHeading
-        index="02"
+        index="01"
         title="What I've built"
         titleClassName="text-slate-blue"
         aside={<p className="max-w-[420px] body-text">Side projects I design, build and run myself. More on the way.</p>}
@@ -78,10 +134,7 @@ export const Projects = (): ReactElement => {
                   <div className="flex justify-center items-center size-[72px] rounded-[20px] bg-linen/5">
                     <Image src={project.icon} alt="" className="size-[52px]" />
                   </div>
-                  <span className="inline-flex items-center gap-2 min-h-[30px] px-3 rounded-full bg-caribbean/10 text-[13px] text-caribbean">
-                    <span aria-hidden="true" className="size-[7px] rounded-full bg-caribbean" />
-                    Live
-                  </span>
+                  {StatusTag(project.status)}
                 </div>
                 <span className="text-base text-hot-pink transition-colors group-hover:text-red-purple">Open {project.host} ↗</span>
               </div>
