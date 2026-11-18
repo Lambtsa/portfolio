@@ -42,7 +42,7 @@ const projects: Project[] = [
     support: {
       message: "AudioLinx is free and ad-free. If it’s saved you a “what app are you on?”, a coffee keeps the servers running.",
       label: "Support on Ko-fi",
-      url: "https://ko-fi.com/YOUR_HANDLE",
+      url: "https://ko-fi.com/audiolinx",
     },
   },
   {
