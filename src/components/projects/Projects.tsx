@@ -16,6 +16,12 @@ interface Project {
   icon: StaticImageData;
   url: string;
   host: string;
+  /* Optional tip link shown in a strip at the bottom of the card */
+  support?: {
+    message: string;
+    label: string;
+    url: string;
+  };
 }
 
 /* Live projects, each shown as a full-width card */
@@ -33,6 +39,11 @@ const projects: Project[] = [
     icon: AudiolinxIcon,
     url: "https://audiolinx.xyz/",
     host: "audiolinx.xyz",
+    support: {
+      message: "AudioLinx is free and ad-free. If it’s saved you a “what app are you on?”, a coffee keeps the servers running.",
+      label: "Support on Ko-fi",
+      url: "https://ko-fi.com/audiolinx",
+    },
   },
   {
     name: "Les copains de Maui",
@@ -121,12 +132,9 @@ export const Projects = (): ReactElement => {
       />
       <div className="flex flex-col gap-5">
         {projects.map((project) => (
-          <a
+          <article
             key={project.name}
-            href={project.url}
-            target="_blank"
-            rel="noreferrer"
-            className="group flex flex-col p-10 max-md:p-6 rounded-[28px] border border-slate-blue/35 bg-smoke no-underline transition-colors hover:border-slate-blue/70"
+            className="group relative flex flex-col p-10 max-md:p-6 rounded-[28px] border border-slate-blue/35 bg-smoke transition-colors hover:border-slate-blue/70"
           >
             <div className="min-w-0 flex flex-col gap-5">
               <div className="flex flex-wrap items-center justify-between gap-4">
@@ -136,7 +144,15 @@ export const Projects = (): ReactElement => {
                   </div>
                   {StatusTag(project.status)}
                 </div>
-                <span className="text-base text-hot-pink transition-colors group-hover:text-red-purple">Open {project.host} ↗</span>
+                {/* Stretched link: its ::after covers the card so the whole card stays clickable */}
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-base text-hot-pink no-underline transition-colors group-hover:text-red-purple after:absolute after:inset-0 after:rounded-[28px] after:content-['']"
+                >
+                  Open {project.host} ↗
+                </a>
               </div>
               <div>
                 <h3 className="text-[40px] leading-tight text-linen">{project.name}</h3>
@@ -159,7 +175,25 @@ export const Projects = (): ReactElement => {
                 ))}
               </ul>
             </div>
-          </a>
+            {project.support && (
+              <div className="relative z-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 mt-6 pt-6 border-t border-dashed border-linen/15">
+                <p className="max-w-[560px] text-sm leading-relaxed text-linen/60">{project.support.message}</p>
+                <a
+                  href={project.support.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex shrink-0 items-center gap-2.5 min-h-11 px-[18px] rounded-xl border-[1.5px] border-kofi text-[15px] text-kofi no-underline transition-colors hover:bg-kofi/10"
+                >
+                  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 8h13v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8z" />
+                    <path d="M16 10h2a3 3 0 0 1 0 6h-2" />
+                    <path d="M9.5 15.5c-1.5-1-2.5-2-2.5-3a1.25 1.25 0 0 1 2.5-.5 1.25 1.25 0 0 1 2.5.5c0 1-1 2-2.5 3z" />
+                  </svg>
+                  {project.support.label}
+                </a>
+              </div>
+            )}
+          </article>
         ))}
         <div className="grid grid-cols-1 gap-5">
           {upcoming.map((item) => (
